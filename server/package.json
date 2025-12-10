@@ -1,0 +1,32 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "a server for user registration system",
+  "main": "index.js",
+  "type": "module",
+  "imports": {
+    "#src/*": [
+      "./src/*"
+    ]
+  },
+  "scripts": {
+    "start": "node src/server.ts",
+    "dev": "node --watch  --env-file .env src/server.ts"
+  },
+  "keywords": [],
+  "author": "claudiobzrr",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.2.1",
+    "prisma": "^7.1.0",
+    "winston": "^3.19.0",
+    "zod": "^4.1.13"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/express": "^5.0.6",
+    "@types/node": "^24.10.2",
+    "typescript": "^5.9.3"
+  }
+}
