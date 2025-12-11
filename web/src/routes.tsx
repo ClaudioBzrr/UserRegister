@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import Login from "./pages/login";
 import Users from "./pages/users";
+import { ProtectedRoute } from "./components/auth/protected-route";
 
 export const routes: IRoute[] = [
     {
         path: '/',
-        element: <Users />,
+        element: <ProtectedRoute children={<Users />} />,
         name: 'Users'
     },
     {
