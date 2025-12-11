@@ -12,5 +12,5 @@ export interface IRepository<T> {
         filter: Partial<Omit<T, keyof ISensitive>>,
         data: Partial<Omit<T, keyof IDBDefault | keyof ISensitive>>
     }) => Promise<void>,
-    delete: (filter: Partial<Omit<T, keyof ISensitive>>) => Promise<boolean>,
+    delete: (filter: Partial<Omit<T, keyof ISensitive>>) => Promise<void>,
 }

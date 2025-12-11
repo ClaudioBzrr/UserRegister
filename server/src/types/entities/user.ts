@@ -4,4 +4,4 @@ export interface IUser extends IDBDefault {
     name: string
     email: string
     password: string
-}
+} 
