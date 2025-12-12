@@ -8,15 +8,6 @@ interface IInpuProps extends InputHTMLAttributes<HTMLInputElement> {
 
 export function Input({ label, ...props }: IInpuProps) {
     return (
-        <div className={style.container}>
-            {
-                label ? (
-                    <label>{label}</label>
-                ) : (
-                    null
-                )
-            }
-            <input className={style.input} {...props} />
-        </div>
+        <input className={style.input} {...props} />
     )
 }

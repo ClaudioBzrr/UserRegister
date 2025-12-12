@@ -25,12 +25,12 @@
 
 @font-face {
     font-family: 'Ubuntu Light';
-    src: url('./assets/fonts/Ubuntu-Light.ttf');
+    src: url('./assets/fonts/Ubuntu-Light.ttf') format('truetype')
 }
 
 @font-face {
     font-family: 'Ubuntu Medium';
-    src: url('./assets/fonts/Ubuntu-Medium.ttf');
+    src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
 }
 
 :root {
@@ -41,9 +41,13 @@
     --font-light-italic: 'Ubuntu Light Italic', sans-serif;
     --font-light: 'Ubuntu Light', sans-serif;
     --font-medium: 'Ubuntu Medium', sans-serif;
+    --primary-color: black;
+    --secondary-color: #18181b;
+    --muted-color: #27272a;
 }
 
 html {
+    color: white;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
