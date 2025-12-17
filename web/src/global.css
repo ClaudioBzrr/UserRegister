@@ -41,7 +41,9 @@
     --font-light-italic: 'Ubuntu Light Italic', sans-serif;
     --font-light: 'Ubuntu Light', sans-serif;
     --font-medium: 'Ubuntu Medium', sans-serif;
+    --font-color: white;
     --primary-color: black;
+    --contrast-color: white;
     --secondary-color: #18181b;
     --muted-color: #27272a;
 }

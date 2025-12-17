@@ -1,0 +1,10 @@
+.button {
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--contrast-color);
+    width: 100%;
+    padding: 10px;
+    color: var(--primary-color);
+    font-family: var(--font-regular);
+}

@@ -7,13 +7,13 @@
     "build": "parcel build index.html"
   },
   "keywords": [],
-  "author": "",
+  "author": "claudiobzrr",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "lucide-react": "^0.561.0",
     "react": "^19.2.2",
     "react-dom": "^19.2.2",
-    "react-icons": "^5.5.0",
     "react-router": "^7.10.1"
   },
   "devDependencies": {
