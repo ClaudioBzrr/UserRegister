@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import App from './app';
-import './global.css';
+import { Router } from './router';
+import './assets/global.css';
 
-createRoot(document.getElementById('root')!).render(<App />);
+createRoot(document.getElementById('root')!).render(<Router />);

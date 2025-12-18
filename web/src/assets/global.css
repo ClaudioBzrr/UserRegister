@@ -1,36 +1,36 @@
 @font-face {
     font-family: 'Ubuntu Regular';
-    src: url('./assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Ubuntu Bold';
-    src: url('./assets/fonts/Ubuntu-Bold.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Ubuntu Italic';
-    src: url('./assets/fonts/Ubuntu-Italic.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-Italic.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Ubuntu Bold Italic';
-    src: url('./assets/fonts/Ubuntu-BoldItalic.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-BoldItalic.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Ubuntu Light Italic';
-    src: url('./assets/fonts/Ubuntu-LightItalic.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-LightItalic.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'Ubuntu Light';
-    src: url('./assets/fonts/Ubuntu-Light.ttf') format('truetype')
+    src: url('./fonts/Ubuntu-Light.ttf') format('truetype')
 }
 
 @font-face {
     font-family: 'Ubuntu Medium';
-    src: url('./assets/fonts/Ubuntu-Medium.ttf') format('truetype');
+    src: url('./fonts/Ubuntu-Medium.ttf') format('truetype');
 }
 
 :root {
@@ -49,7 +49,7 @@
 }
 
 html {
-    color: white;
+    color: var(--font-color);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -58,8 +58,25 @@ html {
 
 body {
     font-family: var(--font-regular);
-    background-color: black;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--contrast-color);
     margin: 0;
     padding: 0;
+}
+
+button {
+    font-family: var(--font-bold);
+    background-color: var(--contrast-color);
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1,
+a,
+div {
+    font-family: var(--font-light);
+    color: var(--font-color);
 }
