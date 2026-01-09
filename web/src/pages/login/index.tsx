@@ -15,7 +15,11 @@ export default function Login() {
         e.preventDefault()
         try {
             const data = await fetch('http://localhost:3000/login', {
+                method: 'POST',
                 body: JSON.stringify({ email, password }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             }).then(res => res.json())
             if (data) {
                 localStorage.setItem('user', JSON.stringify(data))
@@ -27,13 +31,13 @@ export default function Login() {
 
     return (
         <main className={style.container}>
-            <div className={style.form} onSubmit={e => handleLogin(e)}>
-                <Input onChange={e => setEmail(e.target.value)} leftElement={<LucideUser />} />
-                <PasswordInput onChange={e => setPassword(e.target.value)} />
+            <form className={style.form} onSubmit={e => handleLogin(e)}>
+                <Input type='email' required onChange={e => setEmail(e.target.value)} leftElement={<LucideUser />} />
+                <PasswordInput required onChange={e => setPassword(e.target.value)} />
                 <div className={style.buttonContainer}>
                     <Button type='submit' text='Entrar' />
                 </div>
-            </div>
+            </form>
         </main>
     )
 }
