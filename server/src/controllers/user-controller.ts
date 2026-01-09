@@ -22,14 +22,14 @@ export class UserController {
     async login(req: Request, res: Response) {
         try {
             const loginUserService = new LoginUserService(userRepository, passwordHasher)
-            const user = await loginUserService.exec(req.body);
-            const token = jwt.sign({ id: user.id }, env.JWT_SECRET, { expiresIn: '1h' });
+            const data = await loginUserService.exec(req.body);
+            const token = jwt.sign({ id: data.id }, env.JWT_SECRET, { expiresIn: '1h' });
             res.cookie('token', token, {
                 httpOnly: true,
                 secure: env.NODE_ENV === 'production',
                 sameSite: 'strict'
             });
-            res.status(200).json({ status: 'success', data: user });
+            res.status(200).json({ status: 'success', data });
         } catch (err) {
             logger.error(err instanceof Error ? err.message : err);
             res.status(500).json({ status: 'error', message: err instanceof Error ? err.message : "Internal server error" });

@@ -1,31 +1,28 @@
-.background {
-    max-height: 100vh;
-    max-width: 100vw;
-    height: 100vh;
-    width: 100vw;
+.container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh
 }
 
-.login-box {
-    border-radius: 5%;
-    min-width: 250px;
-    min-height: 300px;
-    border: 1px var(--muted-color) solid;
+
+
+.form {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    width: 250px;
+    height: 300px;
+    border: 1px solid var(--muted-color);
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
 }
 
-.login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20;
+.buttonContainer {
+
+    width: 100%;
 }

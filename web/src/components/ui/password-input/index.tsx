@@ -1,17 +1,26 @@
-import { useState, type InputHTMLAttributes } from 'react'
+import { useState } from 'react'
+import Input, { type IInput } from '../input'
 import style from './index.module.css'
-import { Eye, EyeClosed } from 'lucide-react'
+import { LucideEye, LucideEyeClosed, LucideEyeOff, LucideLock, LucideLockOpen } from 'lucide-react'
 
-interface IPasswordInputProps extends InputHTMLAttributes<HTMLInputElement> { }
+interface IPasswordInput extends IInput {
 
-export default function PasswordInput({ ...props }: IPasswordInputProps) {
-    const [isVisible, setIsVisible] = useState(false)
+}
+
+export default function PasswordInput({ ...props }: IPasswordInput) {
+    const [showPassword, setShowPassword] = useState<boolean>(false)
     return (
-        <div className={style.container}>
-            <input className={style['input-custom']} {...props} type={isVisible == true ? 'text' : 'password'} />
-            {
-                isVisible ? <Eye onClick={() => setIsVisible(false)} className={style.icon} /> : <EyeClosed onClick={() => setIsVisible(true)} className={style.icon} />
+        <Input
+            leftElement={showPassword ? <LucideLockOpen /> : <LucideLock />}
+            rightElement={
+                <span onClick={() => setShowPassword(!showPassword)} className={style.showPassword}>
+                    {
+                        showPassword ? <LucideEye /> : <LucideEyeClosed />
+                    }
+                </span>
             }
-        </div>
+            {...props}
+            type={showPassword ? 'text' : 'password'}
+        />
     )
 }

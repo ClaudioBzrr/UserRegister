@@ -1,21 +1,19 @@
 {
   "compilerOptions": {
-    "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "target": "esnext",
+    "module": "esnext",
     "lib": [
       "DOM",
       "DOM.Iterable",
       "ESNext"
     ],
-    "jsx": "react-jsx",
-    "strict": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
+    "allowArbitraryExtensions": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "isolatedModules": true
+    "resolveJsonModule": true,
+    "jsx": "react-jsx"
   },
   "include": [
     "src"

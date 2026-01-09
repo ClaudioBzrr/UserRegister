@@ -1,42 +1,11 @@
-.input-custom {
-    width: 100%;
-    font-size: small;
-    background: var(--primary-color);
-    border: none;
-    color: white;
+.showPassword svg {
+    box-sizing: content-box;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 12px 8px 12px;
-    border-radius: 5px;
-    height: 100%;
-    font-family: var(--font-regular);
-    color: white;
-    width: 100%;
-    border: none;
-    background-color: var(--primary-color);
-    border: 1px solid var(--muted-color);
-}
-
-.input-custom:focus {
-    outline: none;
-    border: none;
-}
-
-
-.icon {
-    font-size: 20px;
-    transition: all ease-in-out 0.3s;
-    height: 90%;
-    border-radius: 2px;
-    padding: 4px;
-}
-
-.icon:hover {
+.showPassword svg:hover {
+    transition: ease-in-out 0.4s;
     cursor: pointer;
-    background-color: var(--secondary-color);
+    border-radius: 2px;
+    color: aliceblue;
+    background-color: var(--muted-color);
 }

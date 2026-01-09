@@ -1,30 +1,27 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { createBrowserRouter, RouterProvider } from "react-router";
 import Login from "./pages/login";
 import Users from "./pages/users";
-import { ProtectedRoute } from "./components/auth/protected-route";
 
 export const routes: IRoute[] = [
     {
-        path: '/',
-        element: <ProtectedRoute children={<Users />} />,
-        name: 'Users'
+        path: '/login',
+        element: <Login />
     },
     {
-        path: '/login',
-        element: <Login />,
-        name: 'Login'
+        path: '/',
+        element: <Users />
     }
 ]
 
 
-export function Router() {
-    return (
-        <BrowserRouter>
-            <Routes>
-                {
-                    routes.map((route, index) => <Route key={index} path={route.path} element={route.element} />)
-                }
-            </Routes>
-        </BrowserRouter>
-    )
-}
+const router = createBrowserRouter(routes.map(r => ({
+    path: r.path,
+    element: r.element,
+    children: r.children && r.children.length > 0 ?
+        r.children.map(c => c.index && c.index == true ? ({ index: true, element: c.element }) : ({ path: c.path, element: c.element }))
+        : []
+})))
+
+
+
+export const Router = () => <RouterProvider router={router} />

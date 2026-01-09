@@ -1,0 +1,235 @@
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Regular';
+    src: url('../fonts/rubik/Rubik-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Italic';
+    src: url('../fonts/rubik/Rubik-Italic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Light';
+    src: url('../fonts/rubik/Rubik-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Light Italic';
+    src: url('../fonts/rubik/Rubik-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Medium';
+    src: url('../fonts/rubik/Rubik-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Medium Italic';
+    src: url('../fonts/rubik/Rubik-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Semibold';
+    src: url('../fonts/rubik/Rubik-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Semibold Italic';
+    src: url('../fonts/rubik/Rubik-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Bold';
+    src: url('../fonts/rubik/Rubik-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Bold Italic';
+    src: url('../fonts/rubik/Rubik-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Extrabold';
+    src: url('../fonts/rubik/Rubik-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Extrabold Italic';
+    src: url('../fonts/rubik/Rubik-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Black';
+    src: url('../fonts/rubik/Rubik-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Rubik Black Italic';
+    src: url('../fonts/rubik/Rubik-BlackItalic.ttf') format('truetype');
+}
+
+
+
+:root {
+    --font-regular: 'Rubik Regular', sans-serif;
+    --font-italic: 'Rubik Italic', sans-serif;
+    --font-medium: 'Rubik Medium', sans-serif;
+    --font-medium-italic: 'Rubik Medium Italic', sans-serif;
+    --font-semibold: 'Rubik Semibold', sans-serif;
+    --font-semibold-italic: 'Rubik Semibold Italic', sans-serif;
+    --font-bold: 'Rubik Bold', sans-serif;
+    --font-bold-italic: 'Rubik Bold Italic', sans-serif;
+    --font-extrabold: 'Rubik Extrabold', sans-serif;
+    --font-extrabold-italic: 'Rubik Extrabold Italic', sans-serif;
+    --font-black: 'Rubik Black', sans-serif;
+    --font-black-italic: 'Rubik Black Italic', sans-serif;
+    --primary-color: seagreen;
+    --contrast-color: white;
+    --muted-color: lightgreen;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    font-family: var(--font-regular);
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}

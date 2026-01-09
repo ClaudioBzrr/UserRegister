@@ -2,12 +2,21 @@ import type { InputHTMLAttributes } from 'react'
 import style from './index.module.css'
 
 
-interface IInpuProps extends InputHTMLAttributes<HTMLInputElement> {
-    label?: string
+export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
+    leftElement?: React.JSX.Element
+    rightElement?: React.JSX.Element
 }
 
-export function Input({ label, ...props }: IInpuProps) {
+export default function Input({ leftElement, rightElement, ...props }: IInput) {
     return (
-        <input className={style.input} {...props} />
+        <div className={style.container}>
+            {
+                leftElement ? <span className={style.icon} role='left element'>{leftElement}</span> : null
+            }
+            <input {...props} />
+            {
+                rightElement ? <span className={style.icon} role='right element'>{rightElement}</span> : null
+            }
+        </div>
     )
 }

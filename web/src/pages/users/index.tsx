@@ -1,5 +1,8 @@
 import style from './index.module.css'
 
+
 export default function Users() {
-    return <div>Users Page</div>;
+    return (
+        <h1>Users</h1>
+    )
 }

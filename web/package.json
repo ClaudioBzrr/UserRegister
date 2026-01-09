@@ -2,24 +2,26 @@
   "name": "web",
   "version": "1.0.0",
   "description": "",
+  "type": "module",
   "scripts": {
-    "dev": "parcel index.html --open",
-    "build": "parcel build index.html"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "keywords": [],
-  "author": "claudiobzrr",
+  "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
-    "lucide-react": "^0.561.0",
-    "react": "^19.2.2",
-    "react-dom": "^19.2.2",
-    "react-router": "^7.10.1"
+    "lucide-react": "^0.562.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router": "^7.12.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
-    "parcel": "2.16.1",
-    "typescript": "^5.9.3"
+    "@vitejs/plugin-react": "^5.1.2",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
   }
 }
