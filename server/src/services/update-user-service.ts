@@ -11,21 +11,29 @@ export class UpdateUserService {
         this.passwordHasher = passwordHasher;
     }
 
-    async exec(payload: IUpdateUserPayload & { authId: string }) {
-        const authUser = await this.userRepository.findOne({ id: payload.authId });
+    async exec({ authId, id, data }: { authId: string; id: string; data: IUpdateUserPayload }) {
+        const authUser = await this.userRepository.findOne({ id: authId });
         if (!authUser) {
             throw new Error("You must be a valid user.");
         }
-        if (payload.filter.id != authUser.id) {
+        if (id !== authUser.id) {
             throw new Error("You can only update your own account.");
         }
-        if (payload.data.password) {
-            payload.data.password = await this.passwordHasher.hash({ password: payload.data.password });
+        if (!Object.keys(data).length) {
+            throw new Error("Nothing to update.");
+        }
+        if (data.email && data.email !== authUser.email) {
+            const existing = await this.userRepository.findOne({ email: data.email });
+            if (existing) {
+                throw new Error("Email already registered.");
+            }
         }
 
-        await this.userRepository.update(({
-            filter: payload.filter,
-            data: payload.data
-        }));
+        const payload = { ...data } as IUpdateUserPayload;
+        if (payload.password) {
+            payload.password = await this.passwordHasher.hash({ password: payload.password });
+        }
+
+        await this.userRepository.update({ filter: { id }, data: payload });
     }
 }

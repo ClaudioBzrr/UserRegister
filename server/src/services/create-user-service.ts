@@ -16,8 +16,13 @@ export class CreateUserService {
     }
     async exec(payload: ICreateUserPayload) {
         logger.info("Creating new user...");
-        payload.password = await this.passwordHasher.hash({ password: payload.password });
-        await this.userRepository.create(payload);
-        logger.info(`User ${payload.name} created successfully! `);
+        const existing = await this.userRepository.findOne({ email: payload.email });
+        if (existing) {
+            logger.warn(`Email ${payload.email} is already registered`);
+            throw new Error("Email already registered.");
+        }
+        const password = await this.passwordHasher.hash({ password: payload.password });
+        await this.userRepository.create({ ...payload, password });
+        logger.info(`User ${payload.name} created successfully!`);
     }
 }

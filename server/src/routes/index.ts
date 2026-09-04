@@ -1,7 +1,10 @@
 import { Router } from "express";
-import { userRouter } from "./user-routes.ts";
+import { authUserRouter, publicUserRouter } from "./user-routes.ts";
 
-export const routes = Router()
+export const routes = Router();
 
-routes.use(userRouter)
+// 1. Public — no authentication
+routes.use(publicUserRouter);
 
+// 2. Global auth — every route mounted after this requires a valid JWT
+routes.use(authUserRouter);
