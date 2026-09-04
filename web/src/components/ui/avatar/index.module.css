@@ -1,0 +1,21 @@
+.avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-family: var(--font-semibold);
+    flex-shrink: 0;
+    user-select: none;
+}
+
+.md {
+    width: 38px;
+    height: 38px;
+    font-size: 0.85rem;
+}
+
+.sm {
+    width: 30px;
+    height: 30px;
+    font-size: 0.72rem;
+}

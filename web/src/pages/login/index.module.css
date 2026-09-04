@@ -1,28 +1,234 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-    height: 100vh
+.page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--bg);
 }
 
+/* ── Brand panel ─────────────────────────────────────────────────────────── */
+.panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 56px;
+    background:
+        radial-gradient(900px 600px at 15% 10%, rgba(124, 108, 246, 0.28), transparent 60%),
+        radial-gradient(700px 500px at 90% 90%, rgba(52, 211, 153, 0.12), transparent 60%),
+        var(--surface);
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+}
 
+.panel::before {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    border: 1px solid rgba(124, 108, 246, 0.18);
+    top: -120px;
+    right: -120px;
+}
 
-.form {
+.panel::after {
+    content: '';
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    border: 1px solid rgba(124, 108, 246, 0.12);
+    bottom: -80px;
+    left: -60px;
+}
+
+.panelInner {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+    width: 100%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
     gap: 12px;
+    margin-bottom: 56px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--primary), #9b8cff);
+    color: #ffffff;
+    box-shadow: 0 6px 18px var(--primary-glow);
+}
+
+.logo svg {
+    width: 24px;
+    height: 24px;
+}
+
+.brandText {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    width: 250px;
-    height: 300px;
-    border: 1px solid var(--muted-color);
-    padding: 20px;
+    line-height: 1.2;
 }
 
-.buttonContainer {
+.brandText strong {
+    font-family: var(--font-bold);
+    font-size: 1.05rem;
+}
 
+.brandText small {
+    font-size: 0.76rem;
+    color: var(--text-faint);
+}
+
+.panelCopy {
+    margin-bottom: 40px;
+}
+
+.panelTitle {
+    font-family: var(--font-extrabold);
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+}
+
+.panelSubtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.features li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.featureIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--primary-soft);
+    color: var(--primary);
+    flex-shrink: 0;
+}
+
+.featureIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.features li div {
+    display: flex;
+    flex-direction: column;
+}
+
+.features li strong {
+    font-family: var(--font-medium);
+    font-size: 0.92rem;
+}
+
+.features li small {
+    color: var(--text-faint);
+    font-size: 0.8rem;
+}
+
+/* ── Form area ───────────────────────────────────────────────────────────── */
+.formArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+}
+
+.form {
     width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 34px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.formHeader {
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.formTitle {
+    font-family: var(--font-bold);
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+}
+
+.formSubtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.errorBanner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 13px;
+    border-radius: var(--radius-sm);
+    background: var(--danger-soft);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--danger);
+    font-size: 0.85rem;
+}
+
+.formFooter {
+    text-align: center;
+    color: var(--text-faint);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .page {
+        grid-template-columns: 1fr;
+        padding: 24px;
+    }
+
+    .panel {
+        display: none;
+    }
+
+    .formArea {
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .page {
+        padding: 16px;
+    }
+
+    .form {
+        padding: 26px 20px;
+    }
 }

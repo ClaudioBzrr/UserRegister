@@ -1,16 +1,113 @@
-button {
-    text-align: center;
-    background-color: var(--primary-color);
-    width: 100%;
-    padding: 8px;
-    border-radius: 5px;
-    outline: none;
-    border: none;
-    color: var(--contrast-color);
+.base {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-medium);
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color var(--transition), color var(--transition),
+        border-color var(--transition), box-shadow var(--transition), opacity var(--transition);
 }
 
-button:hover {
-    transition: ease-in-out 0.4s;
-    cursor: pointer;
-    background-color: var(--muted-color);
+.base:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Sizes */
+.md {
+    padding: 11px 18px;
+    font-size: 0.925rem;
+}
+
+.sm {
+    padding: 8px 13px;
+    font-size: 0.85rem;
+    gap: 6px;
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+/* Variants */
+.primary {
+    background: linear-gradient(135deg, var(--primary), #9b8cff);
+    color: #ffffff;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.12) inset, var(--shadow-sm);
+}
+
+.primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--primary-hover), #a69aff);
+}
+
+.primary:active:not(:disabled) {
+    background: var(--primary-active);
+}
+
+.secondary {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border-strong);
+}
+
+.secondary:hover:not(:disabled) {
+    background: var(--surface-3);
+    border-color: #3b4559;
+}
+
+.ghost {
+    background: transparent;
+    color: var(--text-muted);
+}
+
+.ghost:hover:not(:disabled) {
+    background: var(--surface-2);
+    color: var(--text);
+}
+
+.danger {
+    background: var(--danger-soft);
+    color: var(--danger);
+    border: 1px solid rgba(248, 113, 113, 0.35);
+}
+
+.danger:hover:not(:disabled) {
+    background: rgba(248, 113, 113, 0.24);
+    color: #ff9b9b;
+}
+
+.icon {
+    display: inline-flex;
+    align-items: center;
+}
+
+.icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Loading spinner */
+.loading {
+    cursor: wait;
+}
+
+.spinner {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    animation: spin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }

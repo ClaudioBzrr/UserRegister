@@ -1,11 +1,9 @@
 import { useState } from 'react'
 import Input, { type IInput } from '../input'
 import style from './index.module.css'
-import { LucideEye, LucideEyeClosed, LucideEyeOff, LucideLock, LucideLockOpen } from 'lucide-react'
+import { LucideEye, LucideEyeClosed, LucideLock, LucideLockOpen } from 'lucide-react'
 
-interface IPasswordInput extends IInput {
-
-}
+interface IPasswordInput extends IInput {}
 
 export default function PasswordInput({ ...props }: IPasswordInput) {
     const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -13,11 +11,14 @@ export default function PasswordInput({ ...props }: IPasswordInput) {
         <Input
             leftElement={showPassword ? <LucideLockOpen /> : <LucideLock />}
             rightElement={
-                <span onClick={() => setShowPassword(!showPassword)} className={style.showPassword}>
-                    {
-                        showPassword ? <LucideEye /> : <LucideEyeClosed />
-                    }
-                </span>
+                <button
+                    type='button'
+                    className={style.showPassword}
+                    onClick={() => setShowPassword(v => !v)}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                    {showPassword ? <LucideEye /> : <LucideEyeClosed />}
+                </button>
             }
             {...props}
             type={showPassword ? 'text' : 'password'}

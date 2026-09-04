@@ -1,11 +1,20 @@
-.showPassword svg {
-    box-sizing: content-box;
+.showPassword {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--text-faint);
+    border-radius: 4px;
+    padding: 4px;
+    transition: color var(--transition), background-color var(--transition);
 }
 
-.showPassword svg:hover {
-    transition: ease-in-out 0.4s;
-    cursor: pointer;
-    border-radius: 2px;
-    color: aliceblue;
-    background-color: var(--muted-color);
+.showPassword svg {
+    width: 17px;
+    height: 17px;
+}
+
+.showPassword:hover {
+    color: var(--text);
+    background-color: var(--surface-3);
 }

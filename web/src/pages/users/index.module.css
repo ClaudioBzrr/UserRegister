@@ -1,0 +1,333 @@
+.pageHeader {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.pageTitleBlock {
+    min-width: 0;
+}
+
+.pageTitle {
+    font-family: var(--font-extrabold);
+    font-size: 1.7rem;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+.pageSubtitle {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+}
+
+.headerActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ── Stats ───────────────────────────────────────────────────────────────── */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+/* ── Error banner ────────────────────────────────────────────────────────── */
+.errorBanner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    border-radius: var(--radius-md);
+    background: var(--danger-soft);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--danger);
+    font-size: 0.88rem;
+}
+
+.errorBanner svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.errorBanner span {
+    flex: 1;
+}
+
+/* ── Card / list container ───────────────────────────────────────────────── */
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+/* ── Skeletons ───────────────────────────────────────────────────────────── */
+.skeletonList {
+    display: flex;
+    flex-direction: column;
+}
+
+.skeletonRow {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 16px 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.skeletonRow:last-child {
+    border-bottom: none;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────────── */
+.empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    padding: 64px 24px;
+}
+
+.emptyIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-lg);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    color: var(--text-faint);
+    margin-bottom: 8px;
+}
+
+.emptyIcon svg {
+    width: 30px;
+    height: 30px;
+}
+
+.emptyTitle {
+    font-family: var(--font-bold);
+    font-size: 1.1rem;
+}
+
+.emptyText {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+}
+
+/* ── Table ───────────────────────────────────────────────────────────────── */
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 15px 22px;
+    font-size: 0.9rem;
+}
+
+.table thead th {
+    font-family: var(--font-medium);
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-faint);
+    background-color: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--transition);
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody tr:hover {
+    background-color: var(--surface-2);
+}
+
+.selfRow {
+    background-color: rgba(124, 108, 246, 0.05);
+}
+
+.selfRow:hover {
+    background-color: rgba(124, 108, 246, 0.08) !important;
+}
+
+.userCell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.userName {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.actionsCol {
+    width: 1%;
+    white-space: nowrap;
+}
+
+.rowActions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ── Forms / modals ──────────────────────────────────────────────────────── */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formError {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    background: var(--danger-soft);
+    border: 1px solid rgba(248, 113, 113, 0.3);
+    color: var(--danger);
+    font-size: 0.85rem;
+}
+
+.deleteConfirm {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    font-size: 0.92rem;
+}
+
+.deleteConfirm strong {
+    color: var(--text);
+    font-family: var(--font-semibold);
+}
+
+.deleteIcon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--danger-soft);
+    color: var(--danger);
+    flex-shrink: 0;
+}
+
+.deleteIcon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .pageHeader {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table,
+    .table tbody,
+    .table tr,
+    .table td {
+        display: block;
+        width: 100%;
+    }
+
+    .table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .table tbody tr {
+        background-color: var(--surface-2);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        padding: 4px 16px;
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--surface-2);
+    }
+
+    .selfRow {
+        border-color: var(--primary) !important;
+    }
+
+    .table td {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 11px 0;
+        border-bottom: 1px dashed var(--border);
+    }
+
+    .table td:last-child {
+        border-bottom: none;
+    }
+
+    .table td::before {
+        content: attr(data-label);
+        font-family: var(--font-medium);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-faint);
+        flex-shrink: 0;
+    }
+
+    .table td:not([data-label])::before {
+        display: none;
+    }
+
+    .rowActions {
+        justify-content: flex-end;
+    }
+}
