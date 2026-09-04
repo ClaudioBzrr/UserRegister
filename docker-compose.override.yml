@@ -1,0 +1,26 @@
+# Development overrides — hot reload, bind mounts, exposed ports.
+# Auto-loaded by `docker compose up`.
+services:
+  server:
+    build:
+      target: development
+    environment:
+      - CHOKIDAR_USEPOLLING=1
+    volumes:
+      - ./server:/app             # bind mount source
+      - /app/node_modules         # anonymous volume preserves container binaries
+    ports:
+      - "${SERVER_PORT:-3000}:${SERVER_PORT:-3000}"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  web:
+    build:
+      target: development
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    environment:
+      - CHOKIDAR_USEPOLLING=1

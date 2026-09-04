@@ -1,0 +1,49 @@
+# Base compose — shared services, networks, volumes.
+# Development loads docker-compose.override.yml automatically.
+# Production: docker compose -f docker-compose.yml -f docker-compose.prod.yml --env-file .env up -d
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: dockerfile
+    environment:
+      - SERVER_PORT=${SERVER_PORT:-3000}
+      - NODE_ENV=${NODE_ENV:-development}
+      - DATABASE_URL=file:/app/data/dev.db
+      - JWT_SECRET=${JWT_SECRET:-dev-secret-change-me}
+      - ADMIN_EMAIL=${ADMIN_EMAIL:-}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
+    volumes:
+      - sqlite_data:/app/data
+    networks:
+      - app-network
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://localhost:3000/login',{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'}).catch(()=>process.exit(1))"
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 5s
+
+  web:
+    build:
+      context: ./web
+      dockerfile: dockerfile
+    networks:
+      - app-network
+    depends_on:
+      server:
+        condition: service_healthy
+
+volumes:
+  sqlite_data:
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.19.0.0/16   # fixed subnet avoids conflicts across projects

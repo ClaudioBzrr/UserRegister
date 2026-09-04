@@ -1,0 +1,25 @@
+# ── Base: install deps + generate Prisma client ──────────────────────────────
+FROM node:24-alpine AS base
+RUN apk add --no-cache su-exec python3 make g++
+WORKDIR /app
+COPY package*.json ./
+COPY prisma ./prisma
+COPY prisma.config.ts ./
+RUN npm ci
+ENV DATABASE_URL=file:./prisma/dev.db
+RUN npx prisma generate
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+RUN addgroup -S appgroup && adduser -S appuser -G appgroup
+
+# ── Development: hot-reload ──────────────────────────────────────────────────
+FROM base AS development
+COPY . .
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["node", "--watch", "src/server.ts"]
+
+# ── Production: direct execution ─────────────────────────────────────────────
+FROM base AS production
+COPY . .
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["npm", "start"]
